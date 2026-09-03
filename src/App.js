@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import GitHubRepoCard from './components/GitHubRepoCard';
+import VideoEmbed from './components/VideoEmbed';
 
 function App() {
   const scrollToSection = (sectionId) => {
@@ -24,7 +26,7 @@ function App() {
       {/* Navigation */}
       <nav className="navbar-responsive">
         <div className="nav-container">
-          {['Home', 'Education', 'Experience', 'Contact'].map((item) => (
+          {['Home', 'Education', 'Experience', 'Projects', 'Contact'].map((item) => (
             <button
               key={item}
               onClick={() => scrollToSection(item.toLowerCase())}
@@ -46,6 +48,14 @@ function App() {
               </h1>
               <p className="sub-heading">
                 I'm a software engineer.
+              </p>
+              <p className="hero-prompt">
+                <span className="prompt-path">~/madeleinne</span>
+                <span className="prompt-symbol"> $ </span>
+                whoami
+                <br />
+                <span className="prompt-output">builder of things that (mostly) work</span>
+                <span className="prompt-cursor" aria-hidden="true" />
               </p>
             </div>
             <div className="home-image">
@@ -171,6 +181,66 @@ function App() {
                 <li>Accuracy and precision were 43%, likely due to underfitting.</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="section-responsive projects-section">
+        <div className="container-responsive">
+          <h2 className="section-title">Projects</h2>
+          <p className="projects-subtitle">
+            A closer look at a few things I've built, trained, or helped ship.
+          </p>
+
+          <div className="editor-grid">
+            {/* Capstone AI chatbot: demo video + the sponsoring team's repo */}
+            <div className="editor-window editor-window--wide">
+              <div className="editor-titlebar">
+                <span className="editor-dot dot-red" />
+                <span className="editor-dot dot-yellow" />
+                <span className="editor-dot dot-green" />
+                <span className="editor-tab">capstone-chatbot/</span>
+              </div>
+              <div className="editor-body">
+                <p className="editor-blurb">
+                  An AI chatbot built to help Canadian senior citizens navigate
+                  applications for financial aid programs like the Canada
+                  Pension Plan, sponsored by Beam Group. Here's a walkthrough
+                  of the chatbot in action.
+                </p>
+                <VideoEmbed
+                  videoId="jjZtX3cmgl4"
+                  title="Capstone AI chatbot demo"
+                />
+                <p className="video-credit">
+                  Demo recorded with my capstone team.
+                </p>
+                <GitHubRepoCard
+                  owner="ntrick-beamgroup"
+                  repo="beam-group"
+                  tabName="beam-group/ (team repo)"
+                  fallbackDescription="The capstone team's repository, sponsored by Beam Group. I contributed as part of the ASU capstone team."
+                />
+              </div>
+            </div>
+
+            {/* Naive-Bayes ML model */}
+            <GitHubRepoCard
+              owner="MDTea"
+              repo="CSE-475-Final-Project"
+              tabName="naive-bayes-model.ipynb"
+              fallbackDescription="CSE 475 final project: cleaned and encoded a Kaggle Netflix dataset, then trained a Naive-Bayes model to predict a title's rating from its description, cast, director, and duration."
+            />
+
+            {/* Grocery Itinerary App, in progress */}
+            <GitHubRepoCard
+              owner="napkinnovations"
+              repo="grocery-itinerary-app"
+              tabName="grocery-itinerary-app/"
+              badge="In progress"
+              fallbackDescription="An app for planning grocery runs into an efficient store-by-store itinerary."
+            />
           </div>
         </div>
       </section>

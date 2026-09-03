@@ -1,5 +1,5 @@
 # Madeleinne Tan's Portfolio
-[Click Here!!](mdtea.github.io)
+[Click Here!!]([mdtea.github.io](https://mdtea.github.io/))
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
